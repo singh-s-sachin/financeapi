@@ -1,0 +1,10 @@
+from django.db import models
+
+# Create your models here.
+class open_account(models.Model):
+	name=models.CharField(max_length=150)
+	current_address=models.TextField()
+	aadhar=models.TextField()
+	pan=models.TextField()
+	relative=models.TextField()
+	relation
