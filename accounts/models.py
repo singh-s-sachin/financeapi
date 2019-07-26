@@ -13,9 +13,12 @@ class create_fd(models.Model):
 	amount=models.CharField(max_length=10)
 	time=models.CharField(max_length=5)
 	maturity=models.CharField(max_length=10)
+class create_loan(models.Model):
+	mobile=models.CharField(max_length=10,primary_key=True)
+	amount=models.CharField(max_length=10)
+	duration=models.CharField(max_length=10)
+	time=models.CharField(max_length=50)
+	repay=models.CharField(max_length=10)
+	approved=models.CharField(max_length=10)
 def __str__(self):
         return '%s %s' % (self.name, self.amount)
-def maturity_val(amount,time):
-	i=(int(amount)*int(time)*7.3)/100
-	i+=int(amount)
-	return str(i)
