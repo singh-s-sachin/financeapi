@@ -16,7 +16,9 @@ def open(request):
         relative=message['relative']
         mobile=message['mobile']
         amount=message['amount']
-        print(name, amount)
-        ac=open_account(name=name,current_address=current_address,aadhar=aadhar,pan=pan,relative=relative,mobile=mobile,amount=amount)
-        ac.save()
-        return HttpResponse(name)
+        try:
+                ac=open_account(name=name,current_address=current_address,aadhar=aadhar,pan=pan,relative=relative,mobile=mobile,amount=amount)
+                ac.save()
+                return HttpResponse(name,mobile)
+        except:
+                return HttpResponse("User already exists")
