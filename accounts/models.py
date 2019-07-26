@@ -8,5 +8,14 @@ class open_account(models.Model):
 	relative=models.CharField(max_length=150)
 	mobile=models.CharField(max_length=10,primary_key=True)
 	amount=models.CharField(max_length=6)
+class create_fd(models.Model):
+	mobile=models.CharField(max_length=10,primary_key=True)
+	amount=models.CharField(max_length=10)
+	time=models.CharField(max_length=5)
+	maturity=models.CharField(max_length=10)
 def __str__(self):
         return '%s %s' % (self.name, self.amount)
+def maturity_val(amount,time):
+	i=(int(amount)*int(time)*7.3)/100
+	i+=int(amount)
+	return str(i)
