@@ -96,7 +96,7 @@ def loan(request):
                 try:
                         actual=create_loan.objects.get(mobile=mobile)
                         print(actual.approved)
-                        if actual.approved:
+                        if actual.approved==True:
                                 return HttpResponse("Loan already approved")
                         else:
                                 amt=int(actual.amount)
